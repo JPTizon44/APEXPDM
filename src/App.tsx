@@ -51,7 +51,8 @@ const EXPERT = {
     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1504868584819-f8e905263543?q=80&w=2076&auto=format&fit=crop"
-  ]
+  ],
+  logo: "https://i.imgur.com/MdVOBpK.jpeg"
 };
 
 const WHATSAPP_LINK = `https://wa.me/${EXPERT.whatsapp}?text=Olá! Gostaria de agendar meu primeiro orçamento gratuito.`;
@@ -120,8 +121,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-zinc-950/80 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center font-display font-bold text-zinc-950 text-xl">A</div>
+        <div className="flex items-center gap-3">
+          <img src={EXPERT.logo} alt={EXPERT.name} className="w-10 h-10 object-cover rounded-full shadow-lg border border-white/10" referrerPolicy="no-referrer" />
           <span className="font-display font-bold text-xl tracking-tight hidden sm:block">{EXPERT.name}</span>
         </div>
 
@@ -197,7 +198,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ q, a }) => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 overflow-x-hidden selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 overflow-x-hidden selection:bg-emerald-500/30 relative">
       <Navbar />
       
       {/* 1. HERO SECTION - Refined Split Layout */}
@@ -273,35 +274,35 @@ export default function App() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
               
-              {/* Floating Stat Card */}
+              {/* Floating Stat Cards - Improved Positioning */}
               <motion.div 
-                animate={{ y: [0, -15, 0] }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 -left-10 glass p-6 rounded-2xl border-emerald-500/20"
+                className="absolute top-8 right-8 glass p-5 rounded-2xl border-emerald-500/20 backdrop-blur-xl shadow-2xl z-20"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center">
-                    <TrendingUp className="text-emerald-400" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-emerald-500/20 rounded-xl flex items-center justify-center">
+                    <TrendingUp className="text-emerald-400 w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-zinc-400 uppercase font-bold tracking-tighter">ROI Médio</p>
-                    <p className="text-2xl font-display font-bold text-emerald-400">12.5x</p>
+                    <p className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">ROI Médio</p>
+                    <p className="text-xl font-display font-bold text-emerald-400">12.5x</p>
                   </div>
                 </div>
               </motion.div>
 
               <motion.div 
-                animate={{ y: [0, 15, 0] }}
+                animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-10 -right-10 glass p-6 rounded-2xl border-cyan-500/20"
+                className="absolute bottom-8 left-8 glass p-5 rounded-2xl border-cyan-500/20 backdrop-blur-xl shadow-2xl z-20"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center">
-                    <Activity className="text-cyan-400" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-cyan-500/20 rounded-xl flex items-center justify-center">
+                    <Activity className="text-cyan-400 w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-zinc-400 uppercase font-bold tracking-tighter">Conversão</p>
-                    <p className="text-2xl font-display font-bold text-cyan-400">+340%</p>
+                    <p className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">Conversão</p>
+                    <p className="text-xl font-display font-bold text-cyan-400">+340%</p>
                   </div>
                 </div>
               </motion.div>
@@ -487,11 +488,11 @@ export default function App() {
       </section>
 
       {/* 7. FOOTER */}
-      <footer className="py-20 px-6 border-t border-white/5">
+      <footer className="py-20 px-6 border-t border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center font-display font-bold text-zinc-950 text-xl">A</div>
+            <div className="flex items-center gap-3 mb-6">
+              <img src={EXPERT.logo} alt={EXPERT.name} className="w-12 h-12 object-contain rounded-xl" referrerPolicy="no-referrer" />
               <span className="font-display font-bold text-xl tracking-tight">{EXPERT.name}</span>
             </div>
             <p className="text-zinc-500 max-w-sm leading-relaxed font-light">
