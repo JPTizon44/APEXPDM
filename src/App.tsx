@@ -121,10 +121,13 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-zinc-950/80 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-3">
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
           <img src={EXPERT.logo} alt={EXPERT.name} className="w-10 h-10 object-cover rounded-full shadow-lg border border-white/10" referrerPolicy="no-referrer" />
           <span className="font-display font-bold text-xl tracking-tight hidden sm:block">{EXPERT.name}</span>
-        </div>
+        </button>
 
         <div className="hidden md:flex items-center gap-8">
           {['Serviços', 'Resultados', 'Diferenciais', 'FAQ'].map((item) => (
@@ -492,7 +495,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src={EXPERT.logo} alt={EXPERT.name} className="w-12 h-12 object-contain rounded-xl" referrerPolicy="no-referrer" />
+              <img src={EXPERT.logo} alt={EXPERT.name} className="w-12 h-12 object-cover rounded-full shadow-lg border border-white/10" referrerPolicy="no-referrer" />
               <span className="font-display font-bold text-xl tracking-tight">{EXPERT.name}</span>
             </div>
             <p className="text-zinc-500 max-w-sm leading-relaxed font-light">
